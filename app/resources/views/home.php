@@ -58,20 +58,20 @@
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="inpName">Name</label>
-              <input type="text" name="first_name" class="form-control" id="inpName">
+              <input type="text" name="first_name" class="form-control" id="inpName" required>
             </div>
             <div class="form-group col-md-6">
               <label for="inpLastname">Lastname</label>
-              <input type="text" name="last_name" class="form-control" id="inpLastname">
+              <input type="text" name="last_name" class="form-control" id="inpLastname" required>
             </div>
           </div>
           <div class="form-group">
             <label for="inpDNI">DNI</label>
-            <input type="text" name="ci" class="form-control" id="inpDNI">
+            <input type="text" name="ci" class="form-control" id="inpDNI" required>
           </div>
           <div class="form-group">
             <label for="inpPhone">Phone</label>
-            <input type="text" name="phone" class="form-control" id="inpPhone">
+            <input type="text" name="phone" class="form-control" id="inpPhone" required>
           </div>
           <button type="submit" class="btn btn-sm btn-primary btn-block">Register</button>
           <button type="button" class="btn btn-sm btn-warning btn-block" data-dismiss="modal">Close</button>
@@ -80,3 +80,12 @@
     </div>
   </div>
 </div>
+
+<script>
+$('#registerModal').on('show.bs.modal', function (event) {
+    $("#inpName").val("");
+    $("#inpLastname").val("");
+    $("#inpDNI").val("");
+    $("#inpPhone").val("");
+});
+</script>
