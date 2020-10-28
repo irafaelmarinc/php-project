@@ -1,0 +1,22 @@
+{
+    "name": "php/project",
+    "description": "The template created with PHP",
+    "keywords": [
+        "PHP"
+    ],
+    "authors": [
+        {
+            "name": "Rafael Marín Cobeña",
+            "email": "kevin.marinc@outlook.es"
+        }
+    ],
+    "require": {
+        "illuminate/database": "^8.11",
+        "vlucas/phpdotenv": "^5.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}
