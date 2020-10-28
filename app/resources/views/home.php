@@ -1,6 +1,6 @@
 <div class="container mt-5">
   <div class="m-3 float-right">
-    <button class="btn btn-success">
+    <button class="btn btn-success" data-toggle="modal" data-target="#registerModal">
       <i class="fa fa-plus-square"></i> Register
     </button>
   </div>
@@ -42,4 +42,41 @@
       ?>
     </tbody>
   </table>
+</div>
+
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabel">Register</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="" method="POST">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inpName">Name</label>
+              <input type="text" name="first_name" class="form-control" id="inpName">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inpLastname">Lastname</label>
+              <input type="text" name="last_name" class="form-control" id="inpLastname">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inpDNI">DNI</label>
+            <input type="text" name="ci" class="form-control" id="inpDNI">
+          </div>
+          <div class="form-group">
+            <label for="inpPhone">Phone</label>
+            <input type="text" name="phone" class="form-control" id="inpPhone">
+          </div>
+          <button type="submit" class="btn btn-sm btn-primary btn-block">Register</button>
+          <button type="button" class="btn btn-sm btn-warning btn-block" data-dismiss="modal">Close</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
