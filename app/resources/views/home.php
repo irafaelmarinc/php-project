@@ -54,7 +54,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="" method="POST">
+        <form action="?c=Home&a=create" method="POST">
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="inpName">Name</label>

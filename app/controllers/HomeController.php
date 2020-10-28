@@ -17,7 +17,12 @@ class HomeController extends Controller
     }
 
     function create() {
-        echo "Create";
+        $params = $_POST; 
+
+        $usr_srv = new UserService();
+        $user = $usr_srv->addUser($params);
+
+        $this->index();
     }
 
     function edit() {

@@ -16,8 +16,8 @@ class UserService
         }
     }
 
-    function addUser() {
-        DB::beginTransaction($params);
+    function addUser($params) {
+        DB::beginTransaction();
         try {
             $user = new User();
             $user->ci          = $params['ci'];
