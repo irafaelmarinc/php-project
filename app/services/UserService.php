@@ -17,7 +17,6 @@ class UserService
     }
 
     function addUser($params) {
-        DB::beginTransaction();
         try {
             $user = new User();
             $user->ci          = $params['ci'];
@@ -26,10 +25,8 @@ class UserService
             $user->phone       = $params['phone'];
             $user->date        = \Carbon\Carbon::now()->format('Y-m-d H:i:s');
             $user->save();
-            DB::commit();
             return $user;
         } catch (\Exception $ex) {
-            DB::rollBack();
             echo json_encode(['status' => $ex->getCode(), 'message' => $ex->getMessage()]);
         }  
     }
