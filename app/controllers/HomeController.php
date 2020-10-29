@@ -16,17 +16,39 @@ class HomeController extends Controller
         require_once "app/resources/views/home.php";
     }
 
-    function create() {
-        $params = $_POST; 
+    function CreateOrEdit() {
 
         $usr_srv = new UserService();
-        $user = $usr_srv->addUser($params);
+
+        $params = $_REQUEST;
+        if (isset($params["dni"])) {
+            $conditions = [
+                ["ci", $params["dni"]],
+                ["isActive", 1],
+            ];
+            $upgrades = [
+                "first_name" => $params["first_name"],
+                "last_name" => $params["last_name"],
+                "phone" => $params["phone"]
+            ];
+
+            $usr_srv->setUser($conditions, $upgrades);
+        } else {
+            $user = $usr_srv->addUser($params);
+        }
 
         header("Location: index.php");
     }
 
     function edit() {
-        echo "Edit";
+        if (isset($_REQUEST['dni'])) {
+
+            $usr_srv = new UserService();
+            $user = $usr_srv->getUser($_REQUEST['dni']);
+
+            require_once "app/resources/views/layouts/template.php";
+            require_once "app/resources/views/edit.php";
+        }
     }
 
     function delete() {

@@ -24,12 +24,12 @@
         <td><?php echo $user["last_name"] ?></td>
         <td><?php echo $user["phone"] ?></td>
         <td>
-          <a href="?c=Home&a=edit&ci=<?php echo $user["ci"] ?>" style="text-decoration:none">
+          <a href="?c=Home&a=edit&dni=<?php echo $user["ci"] ?>" style="text-decoration:none">
             <button class="btn btn-sm btn-info" data-toggle="tooltip" data-placement="top" title="Edit">
               <i class="fa fa-pencil-square-o"></i>
             </button>
           </a>
-          <a href="?c=Home&a=delete&ci=<?php echo $user["ci"] ?>" style="text-decoration:none"
+          <a href="?c=Home&a=delete&dni=<?php echo $user["ci"] ?>" style="text-decoration:none"
             onclick="javascript:return confirm('Are you sure to delete the record?')">
             <button class="btn btn-sm btn-danger" data-toggle="tooltip" data-placement="top" title="Delete">
               <i class="fa fa-trash"></i>
@@ -54,7 +54,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="?c=Home&a=create" method="POST">
+        <form action="?c=Home&a=CreateOrEdit" method="POST">
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="inpName">Name</label>

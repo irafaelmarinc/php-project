@@ -7,6 +7,15 @@ use Illuminate\Support\Facades\DB;
 
 class UserService
 {
+    function getUser($dni) {
+        try {
+            $response = User::where('ci', $dni)->get();
+            return (count($response) > 0) ? json_decode(json_encode($response), true)[0] : [];
+        } catch (\Exception $ex) {
+            echo json_encode(['status' => $ex->getCode(), 'message' => $ex->getMessage()]);
+        }
+    }
+
     function getUsers() {
         try {
             $response = User::select('ci', 'first_name', 'last_name', 'phone')->get();
@@ -32,13 +41,10 @@ class UserService
     }
 
     function setUser($conditions, $upgrades) {
-        DB::beginTransaction();
         try {
             $response = User::where($conditions)->update($upgrades);
-            DB::commit();
             return $response;
         } catch (\Exception $ex) {
-            DB::rollBack();
             return response()->json(['status' => 0, 'message' => $ex->getMessage()]);
         }
     }
