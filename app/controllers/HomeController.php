@@ -22,7 +22,7 @@ class HomeController extends Controller
         $usr_srv = new UserService();
         $user = $usr_srv->addUser($params);
 
-        $this->index();
+        header("Location: index.php");
     }
 
     function edit() {
