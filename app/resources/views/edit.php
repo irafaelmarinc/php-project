@@ -23,10 +23,10 @@
           <input type="text" name="phone" value="<?php echo $user["phone"] ?>" class="form-control" id="inpPhone"
             required>
         </div>
-        <button type="submit" class="btn btn-sm btn-primary btn-block">Register</button>
+        <button type="submit" class="btn btn-sm btn-success btn-block">Edit</button>
       </form>
       <a href="?c=Home&a=index" style="text-decoration:none">
-        <button class="btn btn-sm btn-warning btn-block mt-1 text-white">Cancel</button>
+        <button class="btn btn-sm btn-info btn-block mt-1">Cancel</button>
       </a>
     </div>
   </div>
