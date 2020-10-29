@@ -9,7 +9,10 @@ class UserService
 {
     function getUser($dni) {
         try {
-            $response = User::where('ci', $dni)->get();
+            $response = User::where([
+                ['ci', $dni],
+                ['isActive', 1]
+            ])->get();
             return (count($response) > 0) ? json_decode(json_encode($response), true)[0] : [];
         } catch (\Exception $ex) {
             echo json_encode(['status' => $ex->getCode(), 'message' => $ex->getMessage()]);
@@ -18,7 +21,9 @@ class UserService
 
     function getUsers() {
         try {
-            $response = User::select('ci', 'first_name', 'last_name', 'phone')->get();
+            $response = User::select('ci', 'first_name', 'last_name', 'phone')->where([
+                ['isActive', 1]
+            ])->get();
             return (count($response) > 0) ? json_decode(json_encode($response), true) : [];
         } catch (\Exception $ex) {
             echo json_encode(['status' => $ex->getCode(), 'message' => $ex->getMessage()]);

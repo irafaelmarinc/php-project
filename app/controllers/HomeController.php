@@ -52,6 +52,20 @@ class HomeController extends Controller
     }
 
     function delete() {
-        echo "Delete";
+        $usr_srv = new UserService();
+
+        $params = $_REQUEST;
+        if (isset($params["dni"])) {
+            $conditions = [
+                ["ci", $params["dni"]],
+                ["isActive", 1],
+            ];
+            $upgrades = [
+                "isActive" => 0,
+            ];
+
+            $usr_srv->setUser($conditions, $upgrades);
+        }
+        header("Location: index.php");
     }
 }
