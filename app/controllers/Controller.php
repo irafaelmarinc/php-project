@@ -19,11 +19,4 @@ class Controller
             $redirect->$action();
         }
     }
-
-    function ResponseSuccessfully($payload, $http_code = 200) {
-        header("Content-type: application/json");
-        http_response_code($http_code);
-        $response = array("status" => 1, "data" => (empty($payload)) ? [] : $payload);
-        echo json_encode($response);
-    }
 }

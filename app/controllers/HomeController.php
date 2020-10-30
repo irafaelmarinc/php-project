@@ -4,7 +4,7 @@ namespace App\controllers;
 
 use App\services\UserService;
 
-class HomeController extends Controller
+class HomeController
 {
     function __construct() {}
 
