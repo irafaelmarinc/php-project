@@ -13,7 +13,7 @@ class HomeController
         $users = $usr_srv->getUsers();
 
         require_once "app/resources/views/layouts/template.php";
-        require_once "app/resources/views/home.php";
+        require_once "app/resources/views/home/index.php";
     }
 
     function CreateOrEdit() {
@@ -47,7 +47,7 @@ class HomeController
             $user = $usr_srv->getUser($_REQUEST['dni']);
 
             require_once "app/resources/views/layouts/template.php";
-            require_once "app/resources/views/edit.php";
+            require_once "app/resources/views/home/edit.php";
         }
     }
 
