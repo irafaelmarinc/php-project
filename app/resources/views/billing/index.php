@@ -140,6 +140,9 @@
           } else {
             $("#inpUnit").val("0.00");
             $("#inpTotal").val("0.00");
+            $("#inpSubt").val("0.00");
+            $("#inpIva").val("0.00");
+            $("#inpTotalFinal").val("0.00");
           }
         },
         error: (err) => {
