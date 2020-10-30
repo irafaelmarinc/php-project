@@ -9,7 +9,8 @@ class UserService
 {
     function getUser($dni) {
         try {
-            $response = User::where([
+            $response = User::select('ci', 'first_name', 'last_name', 'phone')
+            ->where([
                 ['ci', $dni],
                 ['isActive', 1]
             ])->get();
